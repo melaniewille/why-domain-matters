@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Why Domain Matters: A Preliminary Study of Domain Effects in Underwater Object Detection">
+  <meta name="keywords"
+    content="Underwater Object Detection, Domain Shift, Domain Generalization, Data Annotation, Marine Robotics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Domain Matters</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/dics.original.css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/oscd_favicon.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/dics.original.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://are-all-marine-species-created-equal.github.io">
+              Are All Marine Species Created Equal?
+            </a>
+            <a class="navbar-item" href="https://why-domain-matters.github.io">
+              Why Domain Matters
+            </a>
+          </div> 
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              <div class="gradient-text" style="font-size: 1em;">
+                Why Domain Matters:
+              </div> 
+              <div>
+                A Preliminary Study of Domain Effects in Underwater Object Detection
+              </div>
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://research.qut.edu.au/qcr/people/melanie-wille/">Melanie Wille</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.qut.edu.au/about/our-people/academic-profiles/d24.miller">Dimity Miller</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.tobiasfischer.info/index.html">Tobias Fischer</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.qut.edu.au/about/our-people/academic-profiles/sg.raine">Scarlett Raine </a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">QUT Centre for Robotics &nbsp; </span>
+            </div>
+
+            <!-- Uncomment and update when paper is accepted -->
+            <div class="column has-text-centered">
+                <span class="link-block">
+                  <a href="https://sites.google.com/view/icra-2026-s2s-perception/home?authuser=0"
+                    class="external-link button is-normal is-rounded gradient-button">
+                    <span>ICRA 2026 Workshop S2S</span>
+                  </a>
+                </span>
+            </div>
+
+
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="" 
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2604.26174" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/melaniewille/underwater_domain_labeling"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href=""
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-image"></i>
+                    </span>
+                    <span>Poster</span>
+                  </a>
+                </span>
+                <!-- Dataset Link (placeholder - uncomment when available) -->
+                <!--               <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Carousel Section -->
+  <section class="section pb-0"> <!-- Reduced padding-bottom so it flows into abstract seamlessly -->
+    <div class="container is-centered has-text-centered">
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <div style="display: inline-block; max-width: 80%; width: 80%;">
+            <!-- Video Carousel -->
+            <div id="video-carousel" style="position: relative; margin: 0 40px;">
+              <div class="swiper-container"
+                style="border-radius: 15px; overflow: visible; box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 0;">
+                <div class="swiper-wrapper">
+                  <!-- Slide 1 -->
+                  <div class="swiper-slide">
+                    <div style="background: white; padding: 1.5rem;">
+                      <h3 class="title is-5" style="margin-bottom: 0.3rem;">Flat, Sandy Seabed</h3>
+                      <h3 class="content is-5" style="margin-bottom: 1rem;">with dark patches and strong green cast</h3>
+
+                      <figure class="image is-covered">
+                        <img
+                          src="./static/images/sandy-seafloor.png"
+                          alt="Flat, Sandy Seabed"
+                          style="
+                            width: 100%;
+                            height: auto;
+                            display: block;
+                            max-height: 600px;
+                            object-fit: contain;
+                            border-radius: 10px;
+                          "
+                        >
+                      </figure>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2 -->
+                  <div class="swiper-slide">
+                    <div style="background: white; padding: 1.5rem;">
+                      <h3 class="title is-5" style="margin-bottom: 0.3rem;">Habitat-Rich Boulder Reef</h3>
+                      <h3 class="content is-5" style="margin-bottom: 1rem;">with blue tint and strong light penetration</h3>
+
+                      <figure class="image is-covered">
+                        <img
+                          src="./static/images/boulder-reef.png"
+                          alt="Habitat-rich Boulder Reef"
+                          style="
+                            width: 100%;
+                            height: auto;
+                            display: block;
+                            max-height: 600px;
+                            object-fit: contain;
+                            border-radius: 10px;
+                          "
+                        >
+                      </figure>
+                    </div>
+                  </div>
+
+                  <!-- Slide 3 -->
+                  <div class="swiper-slide">
+                    <div style="background: white; padding: 1.5rem;">
+                      <h3 class="title is-5" style="margin-bottom: 0.3rem;">Dark, Obscured Scene</h3>
+                      <h3 class="content is-5" style="margin-bottom: 1rem;">with motion blur and likely rocky substrate</h3>
+
+                      <figure class="image is-covered">
+                        <img
+                          src="./static/images/dark-scene.png"
+                          alt="Dark, Obscured Scene"
+                          style="
+                            width: 100%;
+                            height: auto;
+                            display: block;
+                            max-height: 600px;
+                            object-fit: contain;
+                            border-radius: 10px;
+                          "
+                        >
+                      </figure>
+                    </div>
+                  </div>
+                  </div>
+
+                  <!-- Navigation arrows -->
+                  <div class="swiper-button-prev video-prev" style="color: #667eea; left: -10px;"></div>
+                  <div class="swiper-button-next video-next" style="color: #667eea; right: -10px;"></div>
+
+                  <!-- Pagination dots -->
+                  <div class="swiper-pagination video-pagination"   style="bottom: -1px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Abstract Section -->
+  <section class="section">
+    <div class="container is-centered has-text-centered">
+      <div class="columns is-four-fifths is-centered">
+        <div class="column is-10">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-centered ">
+            <p>
+              Domain shift, where deviations between training and deployment data distributions degrade model performance, 
+              is a key challenge in underwater environments. Existing benchmarks testing performance for underwater domain 
+              shift simulate variability through synthetic style transfer. This fails to capture intrinsic scene factors such 
+              as visibility, illumination, scene composition, or acquisition factors, limiting analysis of real-world effects. 
+              We propose a labeling framework that defines underwater domains using measurable image, scene, and acquisition 
+              characteristics. Unlike prior benchmarks, it captures physically meaningful factors, enabling semantically 
+              consistent image grouping and supporting domain-specific evaluation of detection performance including failure 
+              analysis. We validate this on public datasets, showing systematic variations across domain factors and revealing 
+              hidden failure modes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Background/Motivation -->
+  <section class="section" style="background-color: #f8f9fa; padding: 3rem 0;">
+    <div class="container is-centered has-text-centered">
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <img src="./static/images/motivation.png"
+              style="max-width: 100%; height: auto;">
+            <p
+              style="margin-top: 1.5rem; font-size: 1rem; line-height: 1.6; color: #333; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto;">
+              <strong>Underwater object detection</strong> enables scalable <strong>marine monitoring</strong> by automating the identification of key benthic species 
+              that are important indicators of ecosystem health and human impact. However, <strong>training</strong> deep learning models for such a task 
+              usually requires collecting and manually labeling lots of data first, which is <strong>expensive and time-consuming</strong>. Therefore, in a perfect world
+              a detector would only be trained once, and then <strong>reused</strong> across locations and environments. But because <strong>underwater conditions change 
+              constantly</strong> - from water turbidity, currents and depth, over temperature, time, seasons and weather, to region-dependent topography variations - 
+              models struggle to generalize and are faced with <strong>domain shift</strong> problems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Gap -->
+  <section class="section">
+    <div class="container is-centered has-text-centered">
+      <div class="columns is-four-fifths is-centered">
+        <div class="column is-10">
+          <h2 class="title is-3">Research Gap</h2>
+          <div class="content has-text-centered">
+            <div style="display: inline-block; max-width: 100%;">
+              <img src="./static/images/current-limitations.png" alt="Method Overview"
+                style="width: 100%; height: auto; border-radius: 10px; display: block;">
+              <p style="margin-top: 1.5rem; font-size: 1rem; line-height: 1.7; color: #333; text-align: center;">
+                Most existing underwater object detection approaches evaluate performance using <strong>aggregate metrics</strong> across 
+                mixed environmental conditions, hiding failures in specific real-world scenarios. While some methods address 
+                domain generalization ny deviding data into separapable types, they rely on <strong>artificial style transfer</strong>, only 
+                altering the image look without capturing the physical and environmental factors driving true domain shift. 
+                So what is missing is a way to describe and analyze underwater domains that is both interpretable and 
+                grounded in real-world conditions. 
+              </p>
+                <p style="margin-top: 1.5rem; font-size: 1rem; line-height: 1.7; color: #333; text-align: center;">
+                  We therefore ask:
+              </p>
+              <p style="margin-top: 1.5rem; font-size: 1rem; line-height: 1.7; color: #333; text-align: center;">
+                How can <strong>domain variability</strong> in underwater imagery be <strong>decomposed</strong> into <strong>interpretable and measurable factors</strong> that enable consistent grouping of images?
+                And to what extent do these domain-specific factors <strong>influence</strong> object detection <strong>performance</strong> across different conditions?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Method Section -->
+  <section class="section" style="background-color: #f8f9fa; padding: 3rem 0;">
+    <div class="container is-centered has-text-centered">
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <h2 class="title is-3">Our Approach: <span class = "gradient-text-small">Underwater Domain Labeling Framework</span> </h2>
+
+          <!-- Carousel and Caption Container -->
+          <div style="display: inline-block; max-width: 100%; width: 100%;">
+            <!-- Carousel -->
+            <div id="results-carousel" style="position: relative;">
+              <div class="swiper-container"
+                style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                <div class="swiper-wrapper">
+                  <!-- Slide 1: Overview -->
+                  <div class="swiper-slide">
+                    <div style="background: white; padding: 1.5rem;">
+                      <h3 class="title is-5" style="margin-bottom: 1rem;">Overview: Full Labeling Pipeline</h3>
+                      <img src="./static/images/pipeline-overview.png" alt=""
+                        style="width: 100%; height: 40vh; object-fit: contain; display: block;">
+                    </div>
+                  </div>
+
+                  <!-- Slide 2: Step 1 -->
+                  <div class="swiper-slide">
+                    <div style="background: white; padding: 1.5rem;">
+                      <h3 class="title is-5" style="margin-bottom: 1rem;">Step by Step: Components of Domain Shift</h3>
+                      <img src="./static/images/step1-decompose.png" alt=""
+                        style="width: 100%; height: 40vh; object-fit: contain; display: block;">
+                    </div>
+                  </div>
+
+                  <!-- Slide 3: Step 2,3 -->
+                  <div class="swiper-slide">
+                    <div style="background: white; padding: 1.5rem;">
+                      <h3 class="title is-5" style="margin-bottom: 1rem;">Step by Step: Assessing Domain Characteristics</h3>
+                      <img src="./static/images/step23-category-metrics.png" alt=""
+                        style="width: 100%; height: 40vh; object-fit: contain; display: block;">
+                    </div>
+                  </div>
+
+                  <!-- Slide 2: Step 4 -->
+                  <div class="swiper-slide">
+                    <div style="background: white; padding: 1.5rem;">
+                      <h3 class="title is-5" style="margin-bottom: 1rem;">Step by Step: From Images to Domain Labels</h3>
+                      <img src="./static/images/step4-labels.png" alt=""
+                        style="width: 100%; height: 40vh; object-fit: contain; display: block;">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Navigation arrows -->
+                <div class="swiper-button-prev" style="color: #667eea;"></div>
+                <div class="swiper-button-next" style="color: #667eea;"></div>
+
+                <!-- Pagination dots -->
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+
+            <p style="margin-top: 1.5rem; font-size: 1rem; color: #555; text-align: center; line-height: 1.7;">
+              We propose a domain labeling framework that decomposes underwater variability into three interpretable axes: 
+              image appearance, scene composition and acquisition geometry. Each axis is then split into categories:
+              visibility - illumination - color, layout - scale - background, and orientation - perspective.
+              These are quantified using consistent metrics to capture image-specific properties. 
+              Based on the computed values, each image is assigned a set of categorical labels, for example: 
+              low - bright - blue, sparse - small - textured, and upright - front. 
+              Our lables describe image characteristics across all three axes based on physically meaningful, measurable factors, providing a structured way to analyze how detection performance changes across different environmental conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const resultsSwiper = new Swiper('#results-carousel .swiper-container', {
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+
+      const videoSwiper = new Swiper('#video-carousel .swiper-container', {
+        initialSlide: 1,
+        loop: false,
+        navigation: {
+          nextEl: '.video-next',
+          prevEl: '.video-prev',
+        },
+        pagination: {
+          el: '.video-pagination',
+          clickable: true,
+        },
+        on: {
+          init: function () {
+            playCurrentVideo(this);
+          },
+          slideChangeTransitionEnd: function () {
+            playCurrentVideo(this);
+          },
+          slideChangeTransitionStart: function () {
+            pauseAllVideos(this);
+          }
+        }
+      });
+
+      function playCurrentVideo(swiper) {
+        const activeSlide = swiper.slides[swiper.activeIndex];
+        const video = activeSlide.querySelector('video');
+        if (video) {
+          video.currentTime = 0;
+          video.loop = false;
+          video.play().catch(function (e) { console.log("Play prevented:", e); });
+          video.onended = function () {
+            swiper.slideTo(1);
+          };
+        }
+      }
+
+      function pauseAllVideos(swiper) {
+        const videos = swiper.el.querySelectorAll('video');
+        for (let i = 0; i < videos.length; i++) {
+          videos[i].pause();
+        }
+      }
+    });
+  </script>
+
+
+
+  <!-- Results Section -->
+  <section class="section">
+    <div class="container is-centered has-text-centered">
+      <div class="columns is-centered">
+        <div class="column is-11">
+          <h2 class="title is-3">Results</h2>
+
+          <p
+            style="margin-bottom: 2rem; font-size: 1rem; color: #555; line-height: 1.6; max-width: 1000px; margin-left: auto; margin-right: auto;">
+            We apply our labeling pipeline to the public DUO and RUOD-4C underwater object detection datasets and train a YOLO26n model as detector in mixed conditions.
+            Performance is evaluated on an unseen test split, separately for every domain category, recording standard overall performance metrics and additionally computing error rates per object (based on model predictions with IoU and confidence threshold = 0.5).
+            Results show that detection performance varies substantially across different environmental and acquisition conditions. 
+            High visibility consistently outperforms low visibility, bright images perform better than dark scenes, and blue distorted images that often correlate with higher visibility and illumination also show better performance.
+            As expected, larger objects are detected much easier than smaller ones, whereas the detector counterintuitively favors crowded scenes and complex backgrounds, highlighting the importance of context.
+            Camera orientation and perspective are more class-dependent: while upright and front-facing images achieve the best results overall, this has larger variations on species level.
+          </p>
+
+          <!-- Tables Side by Side -->
+          <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+
+            <!-- Axis 1 Table -->
+            <div style="flex: 1; min-width: 450px; max-width: 550px;">
+              <h3 class="title is-5" style="margin-bottom: 1rem; color: #A02B93;">
+                <span style="background: #f9e2f7; padding: 4px 12px; border-radius: 5px;">Image Appearance</span>
+              </h3>
+              <div style="overflow-x: auto;">
+                <table
+                  style="width: 100%; border-collapse: collapse; box-shadow: 0 2px 10px rgba(0,0,0,0.1); background: white; border-radius: 8px; overflow: hidden; font-size: 0.9em;">
+                  <thead>
+                    <tr style="background: #D0A8CE; color: #333;">
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">Domain Factor</th>
+                      <th style="padding: 10px 8px; text-align: center; font-weight: 600;">mAP50</th>
+                      <th style="padding: 10px 8px; text-align: center; font-weight: 600;">mAP50-95</th>
+                      <th style="padding: 10px 8px; text-align: center; font-weight: 600;">Precision</th>
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">Recall</th>
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">FP Rate</th>
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">FN Rate</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="background: #f6ddf4;">
+                      <td style="padding: 8px 12px;font-weight: 600;">High Vis</td>
+                      <td style="padding: 8px 12px; text-align: center; font-weight: 600;">0.934</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.709</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.930</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.875</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.084</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.215</td>
+                    </tr>
+                    <tr style="background: #f8e6f7;">
+                      <td style="padding: 8px 12px;">Low Vis</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.836</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.627</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.830</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.759</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.121</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.234</td>
+                    </tr>
+                    <tr style="background: #f6ddf4;">
+                      <td style="padding: 8px 12px; font-weight: 600;">Bright</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.901</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.677</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.877</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.839</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.108</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.227</td>
+                    </tr>
+                    <tr style="background: #f8e6f7;">
+                      <td style="padding: 8px 12px;">Dark</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.863</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.627</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.840</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.795</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.084</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.295</td>
+                    </tr>
+                    <tr style="background: #f6ddf4;">
+                      <td style="padding: 8px 12px;font-weight: 600;">Blue</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.927</td>
+                      <td style="padding: 8px 12px; text-align: center; font-weight: 600;">0.682</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.899</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.880</td>
+                      <td style="padding: 8px 12px; text-align: center; font-weight: 600;">0.135</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.224</td>
+                    </tr>                    
+                    <tr style="background: #f8e6f7;">
+                      <td style="padding: 8px 12px;">Natural</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.837</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.659</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.861</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.750</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.112</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.204</td>
+                    </tr>                    
+                    <tr style="background: #f6ddf4;">
+                      <td style="padding: 8px 12px;">Green</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.859</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.637</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.832</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.794</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.096</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.250</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Axis 2 Table -->
+            <div style="flex: 1; min-width: 450px; max-width: 550px;">
+              <h3 class="title is-5" style="margin-bottom: 1rem; color: #0066cc;">
+                <span style="background: #e6f3ff; padding: 4px 12px; border-radius: 5px;">Scene Composition</span>
+              </h3>
+              <div style="overflow-x: auto;">
+                <table
+                  style="width: 100%; border-collapse: collapse; box-shadow: 0 2px 10px rgba(0,0,0,0.1); background: white; border-radius: 8px; overflow: hidden; font-size: 0.9em;">
+                  <thead>
+                    <tr style="background: #bae1ff; color: #333;">
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">Domain Factor</th>
+                      <th style="padding: 10px 8px; text-align: center; font-weight: 600;">mAP50</th>
+                      <th style="padding: 10px 8px; text-align: center; font-weight: 600;">mAP50-95</th>
+                      <th style="padding: 10px 8px; text-align: center; font-weight: 600;">Precision</th>
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">Recall</th>
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">FP Rate</th>
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">FN Rate</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="background: #e6f3ff;">
+                      <td style="padding: 8px 12px;">Sparse</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.795</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.581</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.762</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.739</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.185</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.247</td>
+                    </tr>
+                    <tr style="background: #f0f8ff;">
+                      <td style="padding: 8px 12px;font-weight: 600;">Crowded</td>
+                      <td style="padding: 8px 12px; text-align: center; font-weight: 600;">0.873</td>
+                      <td style="padding: 8px 12px; text-align: center; font-weight: 600;">0.648</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.849</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.813</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.084</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.262</td>
+                    </tr>
+                    <tr style="background: #e6f3ff;">
+                      <td style="padding: 8px 12px;">Small</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.835</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.598</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.829</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.747</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.088</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.291</td>
+                    </tr>
+                    <tr style="background: #f0f8ff;">
+                      <td style="padding: 8px 12px;font-weight: 600;">Large</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.917</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.715</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.879</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.869</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.119</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.207</td>
+                    </tr>
+                    <tr style="background: #e6f3ff;">
+                      <td style="padding: 8px 12px;">Simple Bkg</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.742</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.572</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.747</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.670</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.110</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.227</td>
+                    </tr>
+                    <tr style="background: #f0f8ff;">
+                      <td style="padding: 8px 12px;font-weight: 600;">Complex Bkg</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.900</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.677</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.886</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.838</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.081</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.234</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Axis 3 Table -->
+            <div style="flex: 1; min-width: 450px; max-width: 550px;">
+              <h3 class="title is-5" style="margin-bottom: 1rem; color: #22bc00;">
+                <span style="background: #eaffe6; padding: 4px 12px; border-radius: 5px;">Acquisition Geometry</span>
+              </h3>
+              <div style="overflow-x: auto;">
+                <table
+                  style="width: 100%; border-collapse: collapse; box-shadow: 0 2px 10px rgba(0,0,0,0.1); background: white; border-radius: 8px; overflow: hidden; font-size: 0.9em;">
+                  <thead>
+                    <tr style="background: #2ff7575f; color: #333;">
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">Domain Factor</th>
+                      <th style="padding: 10px 8px; text-align: center; font-weight: 600;">mAP50</th>
+                      <th style="padding: 10px 8px; text-align: center; font-weight: 600;">mAP50-95</th>
+                      <th style="padding: 10px 8px; text-align: center; font-weight: 600;">Precision</th>
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">Recall</th>
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">FP Rate</th>
+                      <th style="padding: 10px 12px; text-align: center; font-weight: 600;">FN Rate</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="background: #e9ffe6;">
+                      <td style="padding: 8px 12px;font-weight: 600;">Upright</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.865</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.645</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.848</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.791</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.100</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.241</td>
+                    </tr>
+                    <tr style="background: #f0fff4;">
+                      <td style="padding: 8px 12px;">Rotated</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.835</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.625</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.796</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.794</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.119</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.222</td>
+                    </tr>
+                    <tr style="background: #e9ffe6;">
+                      <td style="padding: 8px 12px;">Nadir</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.845</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.632</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.855</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.743</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.114</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.186</td>
+                    </tr>
+                    <tr style="background: #f0fff4;">
+                      <td style="padding: 8px 12px;font-weight: 600;">Front</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.902</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.686</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.872</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.838</td>
+                      <td style="padding: 8px 12px; text-align: center;">0.079</td>
+                      <td style="padding: 8px 12px; text-align: center;font-weight: 600;">0.228</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Change-Guided Efficient Gaussian Representation Update Section -->
+  <section class="section" style="background-color: #f8f9fa; padding: 3rem 0;">
+    <div class="container is-centered has-text-centered">
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <h2 class="title is-3">Contribution Summary</h2>
+
+          <div class="content has-text-centered">
+            <div style="display: inline-block; max-width: 100%; width: 100%;">
+              <!-- Image -->
+              <img src="./static/images/contribution.png" alt="Change-Guided Update Comparison"
+                style="width: 100%; height: auto; display: block;">
+
+              <!-- Caption/Description -->
+              <p style="margin-top: 1.5rem; font-size: 1rem; line-height: 1.7; color: #333; text-align: center;">
+                With this work, we provide a useful tool to better analyze and understand underwater domain shift, 
+                and offer useful insights for developing more robust underwater object detection models in future.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- BibTeX Section -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title has-text-centered">BibTeX</h2>
+      <pre><code>@misc{wille2026domainmatterspreliminarystudy,
+        title={Why Domain Matters: A Preliminary Study of Domain Effects in Underwater Object Detection}, 
+        author={Melanie Wille and Dimity Miller and Tobias Fischer and Scarlett Raine},
+        year={2026},
+        eprint={2604.26174},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2604.26174}}</code></pre>
+    </div>
+  </section>
+
+
+  <!-- Acknowledgement Section -->
+  <section class="section">
+    <div class="container is-centered has-text-centered">
+      <div class="columns is-four-fifths is-centered">
+        <div class="column is-10">
+          <h2 class="title is-4">Acknowledgement</h2>
+          <div class="content has-text-centered is-size-6">
+            <p>
+              This research was supported by the QUT Centre for Robotics, 
+              QUT Digital Research Infrastructure team for HPC,
+              and an ARC DECRA Fellowship DE240100149 to TF.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer centered-footer" style="padding: 2rem 1.5rem;">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content" style="font-size: 0.85rem;">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License.</a> This website template is from <a
+                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. We thank the authors for
+              developing and open-sourcing this template.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
